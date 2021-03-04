@@ -90,6 +90,15 @@ if(isset($_GET['apicall'])){
             $response['message'] = 'Request successfully completed';
             $response['weeks'] = $db->getWeeks();
             break;
+
+        case 'GetLessonsByWeek':
+            isset($_GET['weekid']);
+            $db = new DbOperation();
+            $response['error'] = false;
+            $response['message'] = 'Request successfully completed';
+            $response['heroes'] = $db->GetLessonsByWeekId($_GET['id']);
+
+            break;
     }
 
 }else{

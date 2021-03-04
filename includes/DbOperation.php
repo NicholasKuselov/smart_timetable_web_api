@@ -165,5 +165,33 @@ class DbOperation
         return $teachers;
     }
 
+    function GetLessonsByWeekId($weekid){
+
+
+
+        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, Group, Course, Time FROM timetable WHERE Week = ?");
+        $stmt->bind_param("i", $weekid);
+        $stmt->execute();
+        $stmt->bind_result($idtimetable, $Subject, $Date, $Day, $Week, $Teacher, $Group, $Course, $Time);
+
+        $lessons = array();
+
+        while($stmt->fetch()){
+            $lesson  = array();
+            $lesson['idtimetable'] = $idtimetable;
+            $lesson['Subject'] = $Subject;
+            $lesson['Date'] = $Date;
+            $lesson['Day'] = $Day;
+            $lesson['Week'] = $Week;
+            $lesson['Teacher'] = $Teacher;
+            $lesson['Group'] = $Group;
+            $lesson['Course'] = $Course;
+            $lesson['Time'] = $Time;
+
+            array_push($lessons, $lesson);
+        }
+
+        return $lessons;
+    }
 
 }
