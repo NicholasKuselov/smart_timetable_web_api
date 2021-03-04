@@ -68,6 +68,26 @@ class DbOperation
         return $subjects;
     }
 
+    function getWeeks(){
+        $stmt = $this->con->prepare("SELECT idweek, dateFrom, dateTo FROM week");
+        $stmt->execute();
+        $stmt->bind_result($idweek, $dateFrom, $dateTo);
+
+        $weeks = array();
+
+        while($stmt->fetch()){
+            $week  = array();
+            $week['idweek'] = $idweek;
+            $week['dateFrom'] = $dateFrom;
+            $week['dateTo'] = $dateTo;
+
+
+            array_push($weeks, $week);
+        }
+
+        return $weeks;
+    }
+
     function getGroups(){
         $stmt = $this->con->prepare("SELECT idgroup, name FROM group");
         $stmt->execute();

@@ -83,6 +83,13 @@ if(isset($_GET['apicall'])){
             $response['message'] = 'Request successfully completed';
             $response['courses'] = $db->getCourse();
             break;
+
+        case 'getWeeks':
+            $db = new DbOperation();
+            $response['error'] = false;
+            $response['message'] = 'Request successfully completed';
+            $response['weeks'] = $db->getWeeks();
+            break;
     }
 
 }else{
