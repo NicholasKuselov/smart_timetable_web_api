@@ -1,0 +1,64 @@
+[03-Mar-2021 15:34:24 Europe/Kiev] PHP Fatal error:  Call to a member function execute() on null in /home/b80994/public_html/smarttimetable.ua/SmartTimetableAPI/includes/DbOperation.php on line 54
+[03-Mar-2021 15:40:47 Europe/Kiev] PHP Fatal error:  Call to a member function execute() on null in /home/b80994/public_html/smarttimetable.ua/SmartTimetableAPI/includes/DbOperation.php on line 54
+[03-Mar-2021 15:40:53 Europe/Kiev] PHP Fatal error:  Call to a member function execute() on null in /home/b80994/public_html/smarttimetable.ua/SmartTimetableAPI/includes/DbOperation.php on line 54
+[04-Mar-2021 15:48:40 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:73
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(91): DbOperation->getWeeks()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 73
+[04-Mar-2021 15:48:46 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:73
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(91): DbOperation->getWeeks()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 73
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 142
+[04-Mar-2021 23:01:55 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:06:30 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:06:59 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:07:25 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:10:53 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:10:58 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:11:33 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:14:08 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93
+[04-Mar-2021 23:14:40 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php:93
+Stack trace:
+#0 /home/b80994/public_html/SmartTimetableAPI/v1/Api.php(56): DbOperation->getGroups()
+#1 {main}
+  thrown in /home/b80994/public_html/SmartTimetableAPI/includes/DbOperation.php on line 93

@@ -96,7 +96,7 @@ if(isset($_GET['apicall'])){
             $db = new DbOperation();
             $response['error'] = false;
             $response['message'] = 'Request successfully completed';
-            $response['heroes'] = $db->GetLessonsByWeekId($_GET['id']);
+            $response['lessons'] = $db->GetLessonsByWeekId($_GET['id']);
 
             break;
     }

@@ -25,7 +25,7 @@ class DbOperation
     * When this method is called it is returning all the existing record of the database
     */
     function getLessons(){
-        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, Group, Course, Time FROM timetable");
+        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, `Group`, Course, Time FROM timetable");
         $stmt->execute();
         $stmt->bind_result($idtimetable, $Subject, $Date, $Day, $Week, $Teacher, $Group, $Course, $Time);
 
@@ -89,22 +89,25 @@ class DbOperation
     }
 
     function getGroups(){
-        $stmt = $this->con->prepare("SELECT idgroup, name FROM group");
-        $stmt->execute();
-        $stmt->bind_result($idgroup, $name);
+        $stmt = $this->con->prepare("SELECT idgroup, name FROM `group`");
 
-        $groups = array();
+        if($stmt->execute()) {
+            $stmt->bind_result($idgroup, $name);
 
-        while($stmt->fetch()){
-            $group  = array();
-            $group['idgroup'] = $idgroup;
-            $group['name'] = $name;
+            $groups = array();
 
+            while ($stmt->fetch()) {
+                $currGroup = array();
+                $currGroup['idgroup'] = $idgroup;
+                $currGroup['name'] = $name;
 
-            array_push($groups, $group);
+                array_push($groups, $currGroup);
+            }
+
+            return $groups;
+        }else{
+            return array();
         }
-
-        return $groups;
     }
 
     function getCourse(){
@@ -139,7 +142,7 @@ class DbOperation
             $day['name'] = $name;
 
 
-            array_push($lessons, $day);
+            array_push($days, $day);
         }
 
         return $days;
@@ -167,17 +170,15 @@ class DbOperation
 
     function GetLessonsByWeekId($weekid){
 
-
-
-        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, Group, Course, Time FROM timetable WHERE Week = ?");
+        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, `Group`, Course, Time FROM timetable WHERE Week = ?");
         $stmt->bind_param("i", $weekid);
         $stmt->execute();
         $stmt->bind_result($idtimetable, $Subject, $Date, $Day, $Week, $Teacher, $Group, $Course, $Time);
 
         $lessons = array();
 
-        while($stmt->fetch()){
-            $lesson  = array();
+        while($stmt->fetch()) {
+            $lesson = array();
             $lesson['idtimetable'] = $idtimetable;
             $lesson['Subject'] = $Subject;
             $lesson['Date'] = $Date;
@@ -190,7 +191,6 @@ class DbOperation
 
             array_push($lessons, $lesson);
         }
-
         return $lessons;
     }
 
