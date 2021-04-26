@@ -17,6 +17,8 @@ class DbOperation
         //Initializing our connection link of this class
         //by calling the method connect of DbConnect class
         $this->con = $db->connect();
+
+
     }
 
 
@@ -167,31 +169,59 @@ class DbOperation
 
         return $teachers;
     }
-
     function GetLessonsByWeekId($weekid){
 
-        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, `Group`, Course, Time FROM timetable WHERE Week = ?");
-        $stmt->bind_param("i", $weekid);
+        $stmt = $this->con->prepare("SELECT idtimetable, Subject, Date, Day, Week, Teacher, `Group`, Course, Time FROM timetable WHERE Week = '$weekid'");
         $stmt->execute();
         $stmt->bind_result($idtimetable, $Subject, $Date, $Day, $Week, $Teacher, $Group, $Course, $Time);
 
         $lessons = array();
-
+        $stmt->store_result();
         while($stmt->fetch()) {
             $lesson = array();
             $lesson['idtimetable'] = $idtimetable;
             $lesson['Subject'] = $Subject;
-            $lesson['Date'] = $Date;
+
             $lesson['Day'] = $Day;
             $lesson['Week'] = $Week;
             $lesson['Teacher'] = $Teacher;
             $lesson['Group'] = $Group;
             $lesson['Course'] = $Course;
-            $lesson['Time'] = $Time;
+
+
+            $Sql_Query = "select * from times where idtimes = '$Time'";
+            $res = mysqli_fetch_array(mysqli_query($this->con,$Sql_Query));
+            $lesson['Time'] = $res['timeFrom']." - ".$res['timeTo'];
+
+            $Sql_Query = "select * from dates where iddates = '$Date'";
+            $res = mysqli_fetch_array(mysqli_query($this->con,$Sql_Query));
+            $lesson['Date'] = $res['date'];
+
+
 
             array_push($lessons, $lesson);
         }
         return $lessons;
     }
+
+    function SetDefault()
+    {
+
+
+        $Sql_Query = "INSERT INTO `day` (`name`) VALUES ('пнд');
+                      INSERT INTO `day` (`name`) VALUES ('втр');
+                      INSERT INTO `day` (`name`) VALUES ('срд');
+                      INSERT INTO `day` (`name`) VALUES ('чтв');
+                      INSERT INTO `day` (`name`) VALUES ('птн');
+                      INSERT INTO `day` (`name`) VALUES ('сбт');
+                      INSERT INTO `day` (`name`) VALUES ('вск');";
+
+        if(!mysqli_query($this->con,$Sql_Query))
+        {
+            return "error_with_adding_password";
+        }
+        return true;
+    }
+
 
 }

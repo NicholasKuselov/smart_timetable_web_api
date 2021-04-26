@@ -92,13 +92,32 @@ if(isset($_GET['apicall'])){
             break;
 
         case 'GetLessonsByWeek':
-            isset($_GET['weekid']);
+            if(isset($_GET['weekid']))
+            {
+                $db = new DbOperation();
+                $response['error'] = false;
+                $response['message'] = 'Request successfully completed';
+                $response['lessons'] = $db->GetLessonsByWeekId($_GET['weekid']);
+            }else{
+                $response['error'] = true;
+                $response['message'] = 'error';
+                $response['lessons'] = '';
+            }
+            break;
+
+        case 'def':
             $db = new DbOperation();
             $response['error'] = false;
             $response['message'] = 'Request successfully completed';
-            $response['lessons'] = $db->GetLessonsByWeekId($_GET['id']);
+            $response['lessons'] = $db->SetDefault();
 
             break;
+
+        default:
+            $response['error'] = true;
+            $response['message'] = 'Invalid apicall';
+            break;
+
     }
 
 }else{
